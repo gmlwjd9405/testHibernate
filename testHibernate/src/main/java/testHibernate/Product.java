@@ -33,7 +33,7 @@ public class Product {
 	private String description;
 	
 	// FK·Î »ç¿ë
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="category_id")
 	private Category category;
 }

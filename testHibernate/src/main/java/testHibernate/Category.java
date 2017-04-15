@@ -1,9 +1,14 @@
 package testHibernate;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,4 +27,9 @@ public class Category {
 	private int id;
 
 	private String name;
+
+	// bidiretional을 위해 집합 개념을 사용
+	// Category 저장 시 Child인 Product도 저장
+	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+	private Set<Product> products = new HashSet<Product>();
 }

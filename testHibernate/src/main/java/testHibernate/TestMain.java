@@ -25,27 +25,32 @@ public class TestMain {
 		product1.setPrice(2000);
 		product1.setDescription("Awesome Notebook");
 		product1.setCategory(category1); // 객체에 대한 reference category1. 나중에 FK로 바뀐다.
+		
+		category1.getProducts().add(product1);
 
 		Product product2 = new Product();
 		product2.setName("노트북2");
 		product2.setPrice(300);
 		product2.setDescription("Powerful Notebook");
 		product2.setCategory(category1); // 객체에 대한 reference category1. 나중에 FK로 바뀐다.
+		
+		category1.getProducts().add(product2);
 
 		Product product3 = new Product();
 		product3.setName("소나타");
 		product3.setPrice(10000);
 		product3.setDescription("대중적인 자동차");
 		product3.setCategory(category2); // 객체에 대한 reference category1. 나중에 FK로 바뀐다.
+		
+		category2.getProducts().add(product3);
 
 		// Session 생성
 		Session session = sessionFactory.openSession();
 		// DB의 경우 save를 하는 경우 Transaction이 필요
 		Transaction tx = session.beginTransaction();
 
-		session.save(product1); 
-		session.save(product2);
-		session.save(product3);
+		session.save(category1);
+		session.save(category2);
 
 		tx.commit();
 		session.close();
