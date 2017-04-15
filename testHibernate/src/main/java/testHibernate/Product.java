@@ -23,7 +23,7 @@ public class Product {
 
 	// PK로 사용, 키값을 자동으로 생성
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name = "product_id")
 	private int id;
 
