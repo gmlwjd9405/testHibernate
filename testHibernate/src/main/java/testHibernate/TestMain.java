@@ -43,6 +43,16 @@ public class TestMain {
 		htmlBook.getAuthors().add(authorKim);
 		htmlBook.getAuthors().add(authorHwang);
 
+//		authorKim.getBooks().add(springBook);
+//		authorKim.getBooks().add(hibernateBook);
+//		authorKim.getBooks().add(htmlBook);
+//
+//		authorLee.getBooks().add(springBook);
+//		authorLee.getBooks().add(hibernateBook);
+//
+//		authorHwang.getBooks().add(springBook);
+//		authorHwang.getBooks().add(htmlBook);
+
 		// Session 생성
 		Session session = sessionFactory.openSession();
 		// DB의 경우 save를 하는 경우 Transaction이 필요
@@ -52,6 +62,10 @@ public class TestMain {
 		session.save(springBook);
 		session.save(hibernateBook);
 		session.save(htmlBook);
+		
+//		session.save(authorKim);
+//		session.save(authorLee);
+//		session.save(authorHwang);
 
 		tx.commit();
 		session.close();
