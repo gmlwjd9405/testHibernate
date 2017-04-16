@@ -1,7 +1,5 @@
 package testHibernate;
 
-import java.util.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -43,15 +41,15 @@ public class TestMain {
 		htmlBook.getAuthors().add(authorKim);
 		htmlBook.getAuthors().add(authorHwang);
 
-//		authorKim.getBooks().add(springBook);
-//		authorKim.getBooks().add(hibernateBook);
-//		authorKim.getBooks().add(htmlBook);
-//
-//		authorLee.getBooks().add(springBook);
-//		authorLee.getBooks().add(hibernateBook);
-//
-//		authorHwang.getBooks().add(springBook);
-//		authorHwang.getBooks().add(htmlBook);
+		authorKim.getBooks().add(springBook);
+		authorKim.getBooks().add(hibernateBook);
+		authorKim.getBooks().add(htmlBook);
+
+		authorLee.getBooks().add(springBook);
+		authorLee.getBooks().add(hibernateBook);
+
+		authorHwang.getBooks().add(springBook);
+		authorHwang.getBooks().add(htmlBook);
 
 		// Session »ý¼º
 		Session session = sessionFactory.openSession();
@@ -63,9 +61,9 @@ public class TestMain {
 		session.save(hibernateBook);
 		session.save(htmlBook);
 		
-//		session.save(authorKim);
-//		session.save(authorLee);
-//		session.save(authorHwang);
+		session.save(authorKim);
+		session.save(authorLee);
+		session.save(authorHwang);
 
 		tx.commit();
 		session.close();

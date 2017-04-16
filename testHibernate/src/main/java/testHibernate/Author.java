@@ -8,8 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import lombok.Getter;
@@ -28,7 +26,7 @@ public class Author {
 	private long id;
 
 	private String name;
-	
-//	@ManyToMany(mappedBy="authors", cascade = CascadeType.ALL)
-//	private Set<Book> books = new HashSet<Book>();
+
+	@ManyToMany(mappedBy = "authors", cascade = CascadeType.ALL)
+	private Set<Book> books = new HashSet<Book>();
 }
