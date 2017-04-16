@@ -17,5 +17,7 @@
 		<mapping class="testHibernate.Category"/>
 		<mapping class="testHibernate.Person"/>
 		<mapping class="testHibernate.License"/>
+		<mapping class="testHibernate.Book"/>
+		<mapping class="testHibernate.Author"/>
 	</session-factory>
 </hibernate-configuration>
