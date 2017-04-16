@@ -30,7 +30,7 @@ public class License {
 	private String licenseNumber;
 	private Date issue_date;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name = "person_id")
 	private Person person;
 }

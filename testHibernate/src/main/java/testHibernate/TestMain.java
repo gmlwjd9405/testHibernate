@@ -23,6 +23,8 @@ public class TestMain {
 		license1.setLicenseNumber("123456");
 		license1.setIssue_date(new Date());
 		license1.setPerson(person1); // unidirection
+		
+		person1.setLicense(license1);
 
 		Person person2 = new Person();
 		person2.setFirstName("Alice");
@@ -33,14 +35,16 @@ public class TestMain {
 		license2.setIssue_date(new Date());
 		license2.setPerson(person2); // unidirection
 		
+		person2.setLicense(license2);
+		
 		// Session 생성
 		Session session = sessionFactory.openSession();
 		// DB의 경우 save를 하는 경우 Transaction이 필요
 		Transaction tx = session.beginTransaction();
 
-		//Parent 저장 시  cascade에 의해 Child인 Person도 저장
-		session.save(license1);
-		session.save(license2);
+		//Parent 저장 시  cascade에 의해 Child인 License도 저장
+		session.save(person1);
+		session.save(person2);
 
 		tx.commit();
 		session.close();

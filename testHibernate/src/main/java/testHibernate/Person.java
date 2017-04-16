@@ -1,10 +1,12 @@
 package testHibernate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,4 +25,9 @@ public class Person {
 
 	private String firstName;
 	private String lastName;
+
+	// bidiretional
+	// Person 저장 시 Child인 License도 저장
+	@OneToOne(mappedBy="person", cascade = CascadeType.ALL)
+	private License license;
 }
